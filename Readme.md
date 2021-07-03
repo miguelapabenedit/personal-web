@@ -9,3 +9,6 @@
 - Golang
 - Api WebFramework Fiber
 - GORM
+
+
+-ver go.mod indirect 
