@@ -1,7 +1,9 @@
 # Stack
 - Fiber
-- GORM
-- Redis
+- GORM 
+- PostgreSql
+- Redis - Cache
+- Docker
 
 # Architecture
 - Onion Layer

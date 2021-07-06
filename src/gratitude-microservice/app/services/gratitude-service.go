@@ -1,17 +1,25 @@
 package services
 
-import "github.com/miguelapabenedit/personal-web/src/gratitude-microservice/app/models"
+import (
+	"github.com/miguelapabenedit/personal-web/src/gratitude-microservice/app/models"
+	"github.com/miguelapabenedit/personal-web/src/gratitude-microservice/app/repository"
+)
 
 type service struct{}
 
-func NewGratitudeService() Service {
+var repo repository.Repository
+
+func NewGratitudeService(repository repository.Repository) Service {
+	repo = repository
 	return &service{}
 }
 
 func (s *service) GetGratitudes() ([]models.Gratitude, error) {
-	gratitudes := []models.Gratitude{
-		{ID: 1, Name: "pedro", Description: "pedro salva"},
-		{ID: 2, Name: "pedro", Description: "pedro salva"},
+
+	gratitudes, err := repo.GetGratitudes()
+
+	if err != nil {
+		return nil, err
 	}
 
 	return gratitudes, nil

@@ -1,7 +1,7 @@
 package models
 
 type Gratitude struct {
-	ID          int
+	ID          uint
 	Name        string
 	Description string
 }
