@@ -1,0 +1,37 @@
+version: "3.4"
+
+services:
+  postgre_server_db:
+    image: postgres
+    container_name: postgre_server_db
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "mbenedit"
+      POSTGRES_PASSWORD: "mbenedit"
+      POSTGRES_DB: "gratitude"
+
+  webapi-gratitude:
+    image: gratitude-api
+    container_name: gratitude-api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:3000
+    environment:
+      DB_SERVER: "postgre_server_db"
+      DB_PORT: 5432
+      DB_PASS: "mbenedit"
+      DB_USER: "mbenedit"
+      DB_NAME: "gratitude"
+    networks:
+      - default
+    depends_on: 
+      - postgre_server_db
+      
+volumes:
+  db_volume:

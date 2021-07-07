@@ -1,7 +1,9 @@
 package models
 
+import "gorm.io/gorm"
+
 type Gratitude struct {
-	ID          uint
+	gorm.Model
 	Name        string
 	Description string
 }
