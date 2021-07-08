@@ -6,9 +6,12 @@
 - Descargar PDF
 
 ## Desarrollado en
-- Golang
-- Api WebFramework Fiber
-- GORM
 
-
--ver go.mod indirect 
+## TODO
+- Diseñar gratitudes layout
+- Develop simple FrontEnd Gratitude React (Mostrar gratitudes en cards)
+- Agregar Redis Cache
+- Subir a la nube Back y Front
+- Conectar Front con Back
+- Agregar Authentication y Authorization (Login)
+- Agregar ABM Gratitude
